@@ -1,0 +1,20 @@
+---
+title: "About this website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# This is Jeff's awesome website
+
+This site is made from RMD
+
+![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+
+![](image/tom.jpg)
+
+
+Heres a direct link to the about page: [about](about.html)
+
+I also made a bonus [extra page](extrapage.html)
