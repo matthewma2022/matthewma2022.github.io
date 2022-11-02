@@ -1,22 +1,19 @@
 ---
-title: "Plotly"
+title: "Instacart Dashboard"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
 ---
 
-## Load Packages and Data
-
-```{r}
+```{r setup, include=FALSE}
+library(flexdashboard)
 library(tidyverse)
 library(p8105.datasets)
 library(plotly)
 ```
 
-## Dataset
-
-```{r}
+```{r, include=FALSE}
 data("instacart")
 
 instacart = 
@@ -27,7 +24,10 @@ instacart =
   
 ```
 
-## Scatter Plot
+Column {data-width=400}
+-----------------------------------------------------------------------
+
+### Chart A
 
 ```{r}
 
@@ -37,19 +37,18 @@ instacart %>%
 
 ```
 
-## Box Plot
+Column {data-width=600}
+-----------------------------------------------------------------------
+
+### Chart B
 
 ```{r}
-
 instacart %>% 
   mutate(aisle = fct_reorder(aisle, order_number)) %>%
   plot_ly(y = ~order_number, color = ~aisle, type = "box", colors = "viridis")
-  
-
 ```
 
-
-## Bar Plot
+### Chart C
 
 ```{r}
 instacart %>% 
@@ -58,5 +57,4 @@ instacart %>%
   mutate(aisle = fct_reorder(aisle, n)) %>% 
   plot_ly(x = ~aisle, y = ~n, color = ~aisle, type = "bar", colors = "viridis")
 ```
-
 
