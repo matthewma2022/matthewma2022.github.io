@@ -1,0 +1,61 @@
+---
+title: "Plotly"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+## Load Packages and Data
+
+```{r}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+## Dataset
+
+```{r}
+data("instacart")
+
+instacart = 
+  instacart %>% 
+  select(aisle, add_to_cart_order, days_since_prior_order, order_number, reordered, department) %>% 
+  filter( 
+    department == "dairy eggs")
+  
+```
+
+## Scatter Plot
+
+```{r}
+
+instacart %>% 
+  plot_ly(x = ~add_to_cart_order, y = ~days_since_prior_order, type = "scatter", mode = "markers",
+    color = ~aisle, alpha = 0.5)
+
+```
+
+## Box Plot
+
+```{r}
+
+instacart %>% 
+  mutate(aisle = fct_reorder(aisle, order_number)) %>%
+  plot_ly(y = ~order_number, color = ~aisle, type = "box", colors = "viridis")
+  
+
+```
+
+
+## Bar Plot
+
+```{r}
+instacart %>% 
+  count(aisle) %>% 
+  filter(n > 10000) %>% 
+  mutate(aisle = fct_reorder(aisle, n)) %>% 
+  plot_ly(x = ~aisle, y = ~n, color = ~aisle, type = "bar", colors = "viridis")
+```
+

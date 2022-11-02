@@ -8,10 +8,17 @@ output:
 
 Columbia University Mailman School of Public Health
 
+## Personal Information
 #### Introduction
 
 I am a first year MS Biostatistics student studying at Mailman School of Public Health. I graduated in 2022 from University of Washington with double degrees including Bachelor of Science in Psychology and Bachelor of Arts in Biochemistry. Below is my favorite picture of the week featuring my favorite cartoon character Tom.
 
 Hey If you are interested about me, you can find my CV by clicking the little detective icon on the top right corner and you can find my Instagram friend code there too!
 
+
 ![](image/tom.jpg)
+
+
+## Flexdashboard 
+
+[This](plotly.html) is a page with plotly plots
