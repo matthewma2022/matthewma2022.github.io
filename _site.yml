@@ -3,12 +3,14 @@ output_dir: "."
 navbar:
   title: "Home"
   right:
-    - text: "About"
-      href: about.html
     - icon: fa-envelope fa-lg
-      href: mailto:<you@youremail.com>
+      href: mailto:<matthewma2022@gmail.com>
     - icon: fa-github fa-lg
       href: http://github.com/matthewma2022/
+    - icon: fa fa-instagram 
+      href: ./resources/IG.jpeg
+    - icon: fa-solid fa-user-secret
+      href: ./resources/HTMCV.pdf
 output:
   html_document:
-    theme: cerulean
+    theme: cosmo
