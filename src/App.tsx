@@ -65,10 +65,15 @@ export default function App() {
               <FileText className="h-4 w-4" /> CV
             </a>
             <a
-              href="mailto:you@example.com"
-              className="inline-flex items-center gap-2 rounded-xl border border-zinc-300 bg-white px-3.5 py-2 text-sm font-semibold text-zinc-900 shadow-sm hover:bg-zinc-50 focus:outline-none focus:ring-4 ring-zinc-300/60"
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+                "matthewma2022@gmail.com"
+              )}&su=${encodeURIComponent("PhD Inquiry from [Your Name]")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
             >
-              <Mail className="h-4 w-4" /> Email
+              <Mail className="h-4 w-4" />
+              Email
             </a>
           </div>
         </div>
