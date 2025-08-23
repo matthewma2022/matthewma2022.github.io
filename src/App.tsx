@@ -79,7 +79,7 @@ export default function App() {
         <div className={`pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br ${ACCENT.gradient}`}></div>
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 py-14 sm:grid-cols-2 sm:py-24">
           <div>
-            <Badge>PhD Application Portfolio</Badge>
+            {/* <Badge>PhD Application Portfolio</Badge> */}
             <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-zinc-900 sm:text-5xl">Haotian(Matthew) Ma</h1>
             <p className="mt-4 max-w-prose text-zinc-600">
               I’m an aspiring researcher focused on <span className={ACCENT.text}>[Your Field]</span>. My interests include
@@ -100,7 +100,7 @@ export default function App() {
               </a>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 text-zinc-500">
-              <a href="https://github.com/" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-zinc-800"><Github className="h-4 w-4" /> GitHub</a>
+              <a href="https://github.com/matthewma2022" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-zinc-800"><Github className="h-4 w-4" /> GitHub</a>
               <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-zinc-800"><Linkedin className="h-4 w-4" /> LinkedIn</a>
               <a href="#cv" className="flex items-center gap-2 hover:text-zinc-800"><Download className="h-4 w-4" /> Download CV</a>
             </div>
@@ -112,16 +112,12 @@ export default function App() {
               <div className="aspect-[4/5] w-full overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-md">
                 <img
                   src={headshot}
-                  alt="Your Name headshot"
+                  alt="Haotian Ma headshot"
                   className="h-full w-full object-cover"
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
                 />
-                <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-8">
-                  <div className={`h-24 w-24 rounded-2xl ${ACCENT.bg}`}></div>
-                  <p className="text-sm text-zinc-500">Add your headshot here</p>
-                </div>
               </div>
             </div>
           </motion.div>
@@ -219,7 +215,17 @@ export default function App() {
               <h3 className="text-lg font-semibold text-zinc-900">Let’s talk</h3>
               <p className="mt-2 text-sm text-zinc-600">I’m excited to discuss research directions and potential advising fit. Email is best for a quick response.</p>
               <div className="mt-4 flex flex-col gap-2 text-sm">
-                <a href="matthewma2022@gmail.com" className="inline-flex items-center gap-2 text-zinc-700 hover:text-zinc-900"><Mail className={`${ACCENT.text} h-4 w-4`} /> matthewma2022@gmail.com</a>
+                <a
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+                    "matthewma2022@gmail.com"
+                  )}&su=${encodeURIComponent("PhD Inquiry from [Your Name]")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
+                >
+                  <Mail className={`${ACCENT.text} h-4 w-4`} />
+                  matthewma2022@gmail.com
+                </a>
                 <a href="https://github.com/matthewma2022" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-zinc-700 hover:text-zinc-900"><Github className={`${ACCENT.text} h-4 w-4`} /> github.com/matthewma2022</a>
                 <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-zinc-700 hover:text-zinc-900"><Linkedin className={`${ACCENT.text} h-4 w-4`} /> linkedin.com/in/yourhandle</a>
               </div>
