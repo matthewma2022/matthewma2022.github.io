@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Download, Github, Linkedin, FileText, ArrowRight, GraduationCap, FlaskConical, BookText, Briefcase } from "lucide-react";
 
-import headshot from "./assets/headshot.png"
+import headshot from "./assets/headshot.png";
 
 // This file is ready to drop into a React + TypeScript app as src/App.tsx
 // It uses TailwindCSS utility classes, framer-motion, and lucide-react icons.
@@ -47,7 +47,11 @@ export default function App() {
       <header className="sticky top-0 z-40 border-b border-zinc-200/70 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-3">
-            <div className={`h-8 w-8 rounded-xl ${ACCENT.bg}`}></div>
+            <img
+              src={`${process.env.PUBLIC_URL}/icon.svg`} 
+              alt="Haotian Ma logo"
+              className="h-8 w-8"
+            />
             <span className="text-sm font-semibold tracking-wide text-zinc-900">Haotian Ma</span>
           </div>
           <nav className="hidden gap-6 text-sm font-medium text-zinc-700 sm:flex">
