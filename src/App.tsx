@@ -1,17 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Download, Github, Linkedin, FileText, ArrowRight, GraduationCap, FlaskConical, BookText, Briefcase, MapPin, Calendar, Link2 } from "lucide-react";
+import { Mail, Phone, Download, Github, Linkedin, FileText, ArrowRight, GraduationCap, Award, BookText, Briefcase, MapPin, Calendar, Link2 } from "lucide-react";
 
 import headshot from "./assets/headshot.jpg";
 import { EXPERIENCES } from "./Experiences";
 import { INTERESTS } from "./Interests";
+import { ContactForm } from "./Contact";
 
 // This file is ready to drop into a React + TypeScript app as src/App.tsx
 // It uses TailwindCSS utility classes, framer-motion, and lucide-react icons.
 // Replace placeholders (Your Name, links, etc.) before deploying.
 
 // Accent palette (orange)
-const ACCENT = {
+export const ACCENT = {
   bg: "bg-orange-500",
   bgSoft: "bg-orange-100",
   text: "text-orange-500",
@@ -153,12 +154,34 @@ export default function App() {
             <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-1">
               <li className="flex items-start gap-3"><GraduationCap className={`${ACCENT.text} mt-1 h-5 w-5`} /><span><strong>Education:</strong> M.S. in Columbia University, 2024; B.S. and B.A. in University of Washington, 2022</span></li>
               <li className="flex items-start gap-3"><Briefcase className={`${ACCENT.text} mt-1 h-5 w-5`} /><span><strong>Experience:</strong> Research Assistant @ Weill Cornell Medicine; Teaching Assistant</span></li>
+              <li className="flex items-start gap-3"><Award className={`${ACCENT.text} mt-1 h-5 w-5`} /><span><strong>Professional Membership:</strong> American Medical Informatics Association (AMIA)</span></li>
             </ul>
           </Card>
           <Card className="p-6">
-            <h3 className="text-lg font-semibold text-zinc-900">Core Skills</h3>
+            <h3 className="text-lg font-semibold text-zinc-900">Technical Skills</h3>
             <div className="mt-3 flex flex-wrap gap-2">
-              {["Python", "NLP", "Computer Vision", "Machine Learning", "SQL", "SAS", "Rstudio", "Linux"].map((s) => (
+              {["Python", "PyTorch", "SQL", "SAS", "Linux", "Rstudio", "Git"].map((s) => (
+                <Badge key={s}>{s}</Badge>
+              ))}
+            </div>
+
+            <div className="my-6 border-t border-zinc-200" />
+
+            <h3 className="text-lg font-semibold text-zinc-900">Analytical Skills</h3>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {[
+                "NLP",
+                "Computer Vision",
+                "Machine Learning",
+                "Statistics",
+                "Experimental Design",
+                "Hypothesis Testing",
+                "Data Visualization",
+                "A/B Testing",
+                "Survival Analysis",
+                "Causal Inference",
+                "Evidence-Based Medicine",
+              ].map((s) => (
                 <Badge key={s}>{s}</Badge>
               ))}
             </div>
@@ -173,8 +196,8 @@ export default function App() {
             <Card className="p-6" key={i}>
               <div className="flex items-start gap-3">
                 <item.Icon
-                  size={24}                              
-                  className={`${ACCENT.text} shrink-0`}                          
+                  size={24}
+                  className={`${ACCENT.text} shrink-0`}
                 />
                 <div>
                   <h4 className="text-base font-semibold text-zinc-900">{item.title}</h4>
@@ -326,14 +349,7 @@ export default function App() {
                 <a href="https://www.linkedin.com/in/haotian-matthew-ma/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-zinc-700 hover:text-zinc-900"><Linkedin className={`${ACCENT.text} h-4 w-4`} /> linkedin.com/in/haotian-matthew-ma</a>
               </div>
             </div>
-            <form className="grid grid-cols-1 gap-4">
-              <input placeholder="Name" className="w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-sm shadow-sm placeholder:text-zinc-400 focus:outline-none focus:ring-4 ring-zinc-300/60" />
-              <input placeholder="Email" className="w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-sm shadow-sm placeholder:text-zinc-400 focus:outline-none focus:ring-4 ring-zinc-300/60" />
-              <textarea placeholder="Message" rows={4} className="w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-sm shadow-sm placeholder:text-zinc-400 focus:outline-none focus:ring-4 ring-zinc-300/60"></textarea>
-              <button type="button" className={`inline-flex items-center justify-center gap-2 rounded-xl ${ACCENT.bg} px-5 py-2.5 text-sm font-semibold text-white shadow-sm ${ACCENT.hover} focus:outline-none focus:ring-4 ${ACCENT.ring}`}>
-                Send Message
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </Card>
       </Section>
