@@ -6,6 +6,7 @@ import headshot from "./assets/headshot.jpg";
 import { EXPERIENCES } from "./Experiences";
 import { INTERESTS } from "./Interests";
 import { ContactForm } from "./Contact";
+import { PROJECTS } from "./Projects";
 
 // This file is ready to drop into a React + TypeScript app as src/App.tsx
 // It uses TailwindCSS utility classes, framer-motion, and lucide-react icons.
@@ -114,6 +115,14 @@ export default function App() {
             <div className="mt-6 flex flex-wrap items-center gap-4 text-zinc-500">
               <a href="https://github.com/matthewma2022" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-zinc-800"><Github className="h-4 w-4" /> GitHub</a>
               <a href="https://www.linkedin.com/in/haotian-matthew-ma/" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-zinc-800"><Linkedin className="h-4 w-4" /> LinkedIn</a>
+              <a
+                href="https://scholar.google.com/citations?user=iiO7RJkAAAAJ"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 hover:text-zinc-800"
+              >
+                <GraduationCap className="h-4 w-4" /> Google Scholar
+              </a>
               <a href="#cv" className="flex items-center gap-2 hover:text-zinc-800"><Download className="h-4 w-4" /> Download CV</a>
             </div>
           </div>
@@ -160,7 +169,7 @@ export default function App() {
           <Card className="p-6">
             <h3 className="text-lg font-semibold text-zinc-900">Technical Skills</h3>
             <div className="mt-3 flex flex-wrap gap-2">
-              {["Python", "PyTorch", "SQL", "SAS", "Linux", "Rstudio", "Git"].map((s) => (
+              {["Python", "PyTorch", "SQL", "SAS", "Linux", "Rstudio", "R Shiny", "Tableau", "Git"].map((s) => (
                 <Badge key={s}>{s}</Badge>
               ))}
             </div>
@@ -308,17 +317,65 @@ export default function App() {
 
       {/* PROJECTS */}
       <Section id="projects" title="Projects">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-          {[1, 2, 3].map((i) => (
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {PROJECTS.map((p, i) => (
             <Card key={i} className="overflow-hidden">
-              <div className="h-36 w-full bg-gradient-to-br from-zinc-200 via-zinc-100 to-white"></div>
+              {/* Top: little picture/banner */}
+              <div className="relative h-36 w-full overflow-hidden bg-gradient-to-br from-zinc-200 via-zinc-100 to-white">
+                {p.image ? (
+                  <img src={p.image} alt={`${p.title} banner`} className="h-full w-full object-cover" />
+                ) : (
+                  // fallback gradient with a soft orange glow
+                  <div className={`h-full w-full ${ACCENT.bgSoft}`} />
+                )}
+                {/* Year badge */}
+                <span
+                  className={`absolute left-2 top-2 inline-flex items-center rounded-md px-2 py-0.5 text-xs font-semibold text-white ${ACCENT.bg}`}
+                >
+                  {p.year}
+                </span>
+              </div>
+
+              {/* Body */}
               <div className="p-6">
-                <h4 className="text-base font-semibold text-zinc-900">Project {i}</h4>
-                <p className="mt-1 text-sm text-zinc-600">Brief description of what you built and the impact or result.</p>
-                <div className="mt-3 flex gap-3">
-                  <a className={`rounded-lg ${ACCENT.bg} px-3 py-1.5 text-xs font-semibold text-white ${ACCENT.hover}`}>Demo</a>
-                  <a className="rounded-lg border border-zinc-200 px-3 py-1.5 text-xs font-semibold text-zinc-700 hover:bg-zinc-50">Code</a>
-                </div>
+                <h4 className="text-base font-semibold text-zinc-900">{p.title}</h4>
+                <p className="mt-1 text-sm text-zinc-500">{p.org}</p>
+
+                {/* Bullets */}
+                <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
+                  {p.bullets.map((b, idx) => (
+                    <li key={idx}>{b}</li>
+                  ))}
+                </ul>
+
+                {/* Tags */}
+                {p.tags?.length ? (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="inline-flex items-center rounded-full bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-700 ring-1 ring-inset ring-zinc-200"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+
+                {/* Links */}
+                {p.link && (
+                  <div className="mt-3 flex gap-3">
+                    <a
+                      className="rounded-lg border border-zinc-200 px-3 py-1.5 text-xs font-semibold text-zinc-700 hover:bg-zinc-50"
+                      href={p.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Code
+                    </a>
+                  </div>
+                )}
+
               </div>
             </Card>
           ))}
@@ -347,6 +404,7 @@ export default function App() {
                 <a target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-zinc-700 hover:text-zinc-900"><Phone className={`${ACCENT.text} h-4 w-4`} /> (206) 696-6842</a>
                 <a href="https://github.com/matthewma2022" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-zinc-700 hover:text-zinc-900"><Github className={`${ACCENT.text} h-4 w-4`} /> github.com/matthewma2022</a>
                 <a href="https://www.linkedin.com/in/haotian-matthew-ma/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-zinc-700 hover:text-zinc-900"><Linkedin className={`${ACCENT.text} h-4 w-4`} /> linkedin.com/in/haotian-matthew-ma</a>
+                <a href="https://scholar.google.com/citations?user=iiO7RJkAAAAJ" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-zinc-700 hover:text-zinc-900"><GraduationCap className={`${ACCENT.text} h-4 w-4`} />Google Scholar - Haotian Ma</a>
               </div>
             </div>
             <ContactForm />

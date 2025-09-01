@@ -1,28 +1,31 @@
 export const EXPERIENCES = [
   {
     role: "Research Assistant",
-    company: "Weill Cornell Medical Center",
+    company: "Weill Cornell Medicine",
     location: "New York, NY",
-    start: "2024",
+    start: "09.2024",
     end: "Present",
     points: [
-      "Built NLP pipelines for biomedical text (entity extraction, classification, retrieval).",
-      "Developed LLM-assisted annotation / weak supervision workflows for faster dataset curation.",
-      "Collaborated with clinicians; maintained reproducible experiments with clear reports and tests.",
+      "Employed natural language processing techniques to analyze variant classifications such as breast cancer variants BRCA1&2 ",
+      "Utilized TensorFlow, PyTorch, NLTK, and spaCy for text preprocessing and machine learning model development in NLP projects",
+      "Processed and analyzed large-scale datasets related to variants sequelae from ClinVar ",
+      "Built a clinical web interface using HTML, JavaScript, and CSS to provide user-friendly healthcare tools",
+      "Collaborated with lab members on drafting papers targeting leading conferences such as ACL and MedInfo"
     ],
-    skills: ["Python", "PyTorch", "Hugging Face", "NLP", "LLMs"],
+    skills: ["Python","TensorFlow", "PyTorch", "NLTK", "spaCy", "NLP", "ClinVar", "HTML", "CSS", "JavaScript"],
   },
   {
-    role: "Teaching Assistant",
-    company: "Columbia University",
-    location: "New York, NY",
-    start: "2023",
-    end: "2024",
+    role: "Research Assistant",
+    company: "University of Washington",
+    location: "Seattle, WA",
+    start: "06.2021",
+    end: "06.2022",
     points: [
-      "Led weekly recitations and office hours; created concise review materials.",
-      "Designed and graded programming assignments with detailed, actionable feedback.",
+      "Supervised and documented the learning advancements of 90+ subjects of “uClimb 2.0” through weekly 3-hour online Zoom session",
+      "Organized and cleaned 3200+ raw data using Python;  Conducted a series of statistical modelings including residual analysis, A/B Testing, regression analysis to prove the hypothesis that Python training and skill outcome are highly correlated",
+      "Presented research findings using Rshiny-generated data visualizations; Collaborated with other teams on moderating the experimental design of the study and shared collected data through weekly organizational meetings"
     ],
-    skills: ["Teaching", "Python", "Machine Learning"],
+    skills: ["Python", "Statistics", "A/B Testing", "Regression", "Data Cleaning"],
   },
   // Add more roles here…
 ] as const;
