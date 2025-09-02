@@ -3,10 +3,12 @@ import { motion } from "framer-motion";
 import { Mail, Phone, Download, Github, Linkedin, FileText, ArrowRight, GraduationCap, Award, BookText, Briefcase, MapPin, Calendar, Link2 } from "lucide-react";
 
 import headshot from "./assets/headshot.jpg";
+
 import { EXPERIENCES } from "./Experiences";
 import { INTERESTS } from "./Interests";
 import { ContactForm } from "./Contact";
 import { PROJECTS } from "./Projects";
+import { TEACHING } from "./Teaching";
 
 // This file is ready to drop into a React + TypeScript app as src/App.tsx
 // It uses TailwindCSS utility classes, framer-motion, and lucide-react icons.
@@ -44,6 +46,15 @@ const Section: React.FC<{ id: string; title: string } & ChildrenProps> = ({ id, 
   </section>
 );
 
+const initialsOf = (name: string) =>
+  name
+    .split(/\s+/)
+    .map(w => w[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+
 export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-zinc-50 to-zinc-100 text-zinc-800">
@@ -63,12 +74,14 @@ export default function App() {
             <a href="#research" className="hover:text-zinc-900">Research Interests</a>
             <a href="#publications" className="hover:text-zinc-900">Publications</a>
             <a href="#profession" className="hover:text-zinc-900">Professional Experience</a>
+            <a href="#teaching" className="hover:text-zinc-900">Teaching Experience</a>
             <a href="#projects" className="hover:text-zinc-900">Projects</a>
             <a href="#contact" className="hover:text-zinc-900">Contact</a>
           </nav>
           <div className="flex items-center gap-2">
             <a
-              href="#cv"
+              href={`${process.env.PUBLIC_URL}/Haotian_Ma_CV.pdf`}
+              download="Haotian_Ma_CV.pdf"
               className={`hidden sm:inline-flex items-center gap-2 rounded-xl ${ACCENT.bg} px-4 py-2 text-sm font-semibold text-white shadow-sm ${ACCENT.hover} focus:outline-none focus:ring-4 ${ACCENT.ring}`}
             >
               <FileText className="h-4 w-4" /> CV
@@ -123,7 +136,13 @@ export default function App() {
               >
                 <GraduationCap className="h-4 w-4" /> Google Scholar
               </a>
-              <a href="#cv" className="flex items-center gap-2 hover:text-zinc-800"><Download className="h-4 w-4" /> Download CV</a>
+              <a
+                href={`${process.env.PUBLIC_URL}/Haotian_Ma_CV.pdf`}
+                download="Haotian_Ma_CV.pdf"
+                className="inline-flex items-center gap-2 hover:text-zinc-800"
+              >
+                <Download className="h-4 w-4" /> Download CV
+              </a>
             </div>
           </div>
 
@@ -315,13 +334,51 @@ export default function App() {
         </Card>
       </Section>
 
+      {/* Teaching EXPERIENCE */}
+      <Section id="teaching" title="Teaching Experience">
+        <Card className="p-6">
+          <ul className="space-y-6">
+            {TEACHING.map((t, i) => (
+              <li key={i} className="grid grid-cols-[72px,1fr] items-center gap-4">
+                {/* Left: logo or fallback initials */}
+                <div className="flex items-center justify-center">
+                  {t.logo ? (
+                    <img
+                      src={t.logo}
+                      alt={`${t.school} logo`}
+                      className="h-20 w-20 object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full border border-zinc-200 bg-white text-sm font-semibold text-zinc-700">
+                      {initialsOf(t.school)}
+                    </div>
+                  )}
+                </div>
+
+                {/* Right: one line per school, course italic + term italic */}
+                <div className="text-lg leading-relaxed sm:text-xl">
+                  <span className="font-medium text-zinc-900">{t.role}</span>
+                  <span className="text-zinc-900">, </span>
+                  <em className="text-zinc-900">{t.course}</em>
+                  {/* <span className="text-zinc-900"> — {t.school}</span> */}
+                  <em className="text-zinc-600"> ({t.term})</em>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      </Section>
+
+
       {/* PROJECTS */}
       <Section id="projects" title="Projects">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {PROJECTS.map((p, i) => (
             <Card key={i} className="overflow-hidden">
               {/* Top: little picture/banner */}
-              <div className="relative h-36 w-full overflow-hidden bg-gradient-to-br from-zinc-200 via-zinc-100 to-white">
+              <div className="relative h-60 w-full overflow-hidden bg-gradient-to-br from-zinc-200 via-zinc-100 to-white">
                 {p.image ? (
                   <img src={p.image} alt={`${p.title} banner`} className="h-full w-full object-cover" />
                 ) : (
@@ -349,7 +406,7 @@ export default function App() {
                 </ul>
 
                 {/* Tags */}
-                {p.tags?.length ? (
+                {/* {p.tags?.length ? (
                   <div className="mt-3 flex flex-wrap gap-2">
                     {p.tags.map((t) => (
                       <span
@@ -360,7 +417,7 @@ export default function App() {
                       </span>
                     ))}
                   </div>
-                ) : null}
+                ) : null} */}
 
                 {/* Links */}
                 {p.link && (

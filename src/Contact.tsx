@@ -51,7 +51,7 @@ export function ContactForm() {
         name="name"
         value={form.name}
         onChange={handleChange}
-        placeholder="Name"
+        placeholder="Your Name"
         required
         className="w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-sm shadow-sm placeholder:text-zinc-400 focus:outline-none focus:ring-4 ring-zinc-300/60"
       />
@@ -60,7 +60,7 @@ export function ContactForm() {
         type="email"
         value={form.email}
         onChange={handleChange}
-        placeholder="Email"
+        placeholder="Your Email"
         required
         className="w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-sm shadow-sm placeholder:text-zinc-400 focus:outline-none focus:ring-4 ring-zinc-300/60"
       />
