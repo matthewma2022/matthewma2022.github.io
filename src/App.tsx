@@ -71,9 +71,9 @@ export default function App() {
           </div>
           <nav className="hidden gap-6 text-sm font-medium text-zinc-700 sm:flex">
             <a href="#about" className="hover:text-zinc-900">About</a>
-            <a href="#research" className="hover:text-zinc-900">Research Interests</a>
+            <a href="#interests" className="hover:text-zinc-900">Research Interests</a>
             <a href="#publications" className="hover:text-zinc-900">Publications</a>
-            <a href="#profession" className="hover:text-zinc-900">Professional Experience</a>
+            <a href="#research" className="hover:text-zinc-900">Research Experience</a>
             <a href="#teaching" className="hover:text-zinc-900">Teaching Experience</a>
             <a href="#projects" className="hover:text-zinc-900">Projects</a>
             <a href="#contact" className="hover:text-zinc-900">Contact</a>
@@ -218,7 +218,7 @@ export default function App() {
       </Section>
 
       {/* RESEARCH INTERESTS */}
-      <Section id="research" title="Research Interests">
+      <Section id="interests" title="Research Interests">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
           {INTERESTS.map((item, i) => (
             <Card className="p-6" key={i}>
@@ -279,8 +279,8 @@ export default function App() {
         </div>
       </Section>
 
-      {/* PROFESSIONAL EXPERIENCE */}
-      <Section id="profession" title="Professional Experience">
+      {/* RESEARCH EXPERIENCE */}
+      <Section id="research" title="Research Experience">
         <Card className="p-6">
           <ol className="relative border-l border-zinc-200">
             {EXPERIENCES.map((job, idx) => (
@@ -309,14 +309,14 @@ export default function App() {
                 </div>
 
                 {/* bullets */}
-                <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
+                {/* <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700">
                   {job.points.map((p, i) => (
                     <li key={i}>{p}</li>
                   ))}
-                </ul>
+                </ul> */}
 
                 {/* tags */}
-                {job.skills?.length ? (
+                {/* {job.skills?.length ? (
                   <div className="mt-3 flex flex-wrap gap-2">
                     {job.skills.map((s) => (
                       <span
@@ -327,7 +327,7 @@ export default function App() {
                       </span>
                     ))}
                   </div>
-                ) : null}
+                ) : null} */}
               </li>
             ))}
           </ol>

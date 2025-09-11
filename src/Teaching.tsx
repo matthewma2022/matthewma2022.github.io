@@ -13,21 +13,21 @@ export type TeachingItem = {
 export const TEACHING: readonly TeachingItem[] = [
   {
     school: "Cornell University",
-    role: "Visiting Lecturer",
+    role: "Teaching Assistant",
     course: "Clinical Natural Language Processing and Large-Language Models",
     term: "Spring 2025",
     logo: cornell,
   },
   {
     school: "Weill Cornell Medicine",
-    role: "Visiting Lecturer",
+    role: "Teaching Assistant",
     course: "Natural Language Processing &Health Informatics",
     term: "Spring 2025",
     logo: weill,
   },
   {
     school: "Weill Cornell Medicine",
-    role: "Visiting Lecturer",
+    role: "Teaching Assistant",
     course: "Introduction to GPT & LLMs in Clinical & Translation Research",
     term: "Spring 2025",
     logo: weill,
